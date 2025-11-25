@@ -9,219 +9,142 @@ html,
 body {
   height: 100%;
   width: 100%;
+  background-color: black;
+  -webkit-scrollbar: none;
 }
-
-.story_overlay{
-  position: absolute;
-  visibility: hidden;
-  height:95vh;
-  width:10em;
-  display: flex;
-  justify-content: center;
-  left:50%;
-  top:2%;
-  transform: translate(-50%);
-  background-color: aliceblue;
-  background-position: center;
-  background-size: cover;
-  z-index:11;
-  box-shadow: inset 0 0 20px rgb(0, 0, 0);
-}
-
-.timelap_outer{
-  height: 0.05em;
-  width:94%;
-  position: absolute;
-  top:1.5%;
-  border-radius: 1em;
-  background-color: rgb(180, 180, 180);
-}
-
-.timelap_inner{
-  height: 100%;
-  width:0%;
-  transition: all ease 0.15s;
-  border-radius: 1em;
-  background-color: rgb(255, 255, 255);
-}
-
 
 main {
-  font-size: 2.6vw;
   height: 100%;
   width: 100%;
-  background-color: black;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: top;
 }
 
-#stories{
-  height: 2.5em;
-  width:10em;
-  gap:0.3em;
-  display: flex;
-  align-items: center;
-}
-
-.profile{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 1.75em;
-  width:1.7em;
-  border-radius: 4em;
-  background-image:url(https://tse4.mm.bing.net/th/id/OIP.aIIHiJRh3E0jIB3b-lgl6gHaFM?pid=Api&P=0&h=220);
-  background-size: cover;
-}
-
-#stories .profile:nth-child(1) .story_overlay{
-  background-image: url(https://i.pinimg.com/1200x/f3/41/11/f34111f708b32c4470191fdf7f65f6a4.jpg);
-}
-
-#stories .profile:nth-child(2) .story_overlay{
-  background-image: url(https://i.pinimg.com/736x/b5/61/c4/b561c4ca294b7397cf48828f872a9402.jpg);
-}
-
-#stories .profile:nth-child(3) .story_overlay{
-  background-image: url(https://i.pinimg.com/1200x/5f/d3/16/5fd31681f9129d1bedca5af4b50fefea.jpg);
-}
-
-#stories .profile:nth-child(4) .story_overlay{
-  background-image: url(https://i.pinimg.com/736x/77/25/85/77258548b3ddf8b9514c620d211ddfde.jpg);
-}
-
-.profile img{
-  width: 1.58em;
-  height: 1.6em;
-  border-radius: 4em;
-  background-image: url(https://yt3.googleusercontent.com/Da4zbrS4XLxzb3xVNT14aKr22aBg1blJCuCBppbYglO_uDmElYopgoDk7XV6UWNxthI96XOYrw=s160-c-k-c0x00ffffff-no-rj);
-  background-size: cover;
-  background-position: center;
-}
-
-#post_div {
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-#like_overlay {
+#reels {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  overflow-y: auto;
   position: absolute;
-  top: 40%;
-  left: 42%;
-  font-size: 2em;
-  background-image: url(https://static.vecteezy.com/system/resources/previews/002/486/289/original/gradient-background-instagram-free-vector.jpg);
-  background-size: cover;
-  background-position: left;
-  filter: contrast(1.7);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  opacity: 0;
-  transition: 0.35s;
+  border-radius: 1em;
+  height: 95vh;
+  width: 32em;
+  display: flex;
+  flex-direction: column;
+  left: 50%;
+  top: 2%;
+  transform: translate(-50%);
 }
 
-#post_cont {
-  overflow: hidden;
+#reels::-webkit-scrollbar {
+  display: none;
+}
+
+.reel_cont {
   position: relative;
+  height: 95vh;
+  width: 31em;
 }
 
-#post {
-  height: 10em;
-}
-
-#post_top {
+.reel {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  border-radius: 1em;
+  margin-bottom: 2em;
+  position: relative;
+  min-height: 95vh;
+  width: 26em;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  background-color: rgb(12, 12, 12);
+}
+.reel > img {
   width: 100%;
-  padding: 0.2em;
-}
-#post_top h4 {
-  font-size: 0.3em;
-  margin-right: 0.4em;
-}
-#post_top p {
-  font-size: 0.3em;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
 }
 
-#top_left {
+.reactions_div {
+  position: absolute;
+  right: 4%;
+  bottom: -50%;
+  color: white;
+  height: 95vh;
+}
+.reactions_div div {
+  margin-bottom: 1.5em;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 0.3em;
-  align-items: center;
+}
+.reactions_div div i {
+  font-size: 1.9em;
+}
+.reactions_div div p {
+  font-size: 0.9em;
 }
 
-#top_left div:nth-child(1) {
+.reel_disc_overlay {
+  background: linear-gradient(transparent, rgb(0, 0, 0));
+  width: 100%;
+  height: 20%;
+  position: absolute;
+  bottom: 0%;
+}
+
+.reel_disc {
+  color: white;
+  width: 100%;
+  font-size: 1.15em;
+  position: absolute;
+  left: 4%;
+  bottom: 4%;
+}
+.reel_disc div {
   display: flex;
-}
-
-#follow_indi {
-  font-size: 0.28em;
-  color: crimson;
-  font-weight: 600;
-  margin-top: 0em;
-}
-
-
-#profile {
-  height: 1em;
-  border-radius: 5em;
-}
-
-#verified_mark {
-  height: 0.35em;
-}
-
-#top_right {
-  display: flex;
   align-items: center;
-  gap: 0.2em;
+  gap: 0.6em;
+}
+.reel_disc .caption {
+  display: block;
 }
 
-#top_right button {
-  font-size: 0.3em;
-  border: none;
-  background-color: #4A5DF9;
+.user_profile {
+  margin-bottom: 0.8em;
+}
+.user_profile img {
+  height: 2.4em;
+  width: 2.4em;
+  border-radius: 3em;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.user_profile h4 {
+  font-size: 0.9em;
+  margin-top: 3px;
+}
+.user_profile button {
+  background-color: transparent;
   color: white;
   font-weight: 600;
-  padding: 0.6em 0.7em;
-  border-radius: 0.5em;
-  cursor: pointer;
+  border-radius: 0.3em;
+  border: none;
+  box-shadow: 0 0 2px 1px rgba(255, 255, 255, 0.146);
+  padding: 0.34em;
+  margin-top: 5px;
 }
 
-#top_right #follow_btn:active{
-    opacity: 0.8;
+.caption {
+  color: rgba(255, 255, 255, 0.943);
+  font-size: 0.7em;
 }
-
-#top_right i {
-  font-size: 0.5em;
-  color: black;
+.caption div {
+  color: rgb(197, 197, 197);
 }
-
-#post_bottom {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 0.2em;
-}
-#post_bottom div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8em;
-}
-#post_bottom > div:nth-child(2) {
-  font-size: 0.6em;
-}
-
-#bottom_left div {
-  gap: 0.01em;
-  margin-right: 0.5em;
-}
-#bottom_left div p {
-  font-size: 0.69em;
+.caption div i {
+  margin-top: 6px;
+  margin-right: -5px;
 }/*# sourceMappingURL=style.css.map */
