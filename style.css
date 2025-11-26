@@ -23,7 +23,6 @@ main {
   scroll-behavior: smooth;
   overflow-y: auto;
   position: absolute;
-  border-radius: 1em;
   height: 95vh;
   width: 32em;
   display: flex;
@@ -39,15 +38,16 @@ main {
 
 .reel_cont {
   position: relative;
-  height: 95vh;
+  height: 95.2vh;
   width: 31em;
+  display: flex;
 }
 
 .reel {
   scroll-snap-align: start;
   scroll-snap-stop: always;
   border-radius: 1em;
-  margin-bottom: 2em;
+  overflow: hidden;
   position: relative;
   min-height: 95vh;
   width: 26em;
@@ -56,7 +56,7 @@ main {
   align-items: center;
   background-color: rgb(12, 12, 12);
 }
-.reel > img {
+.reel > video {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
@@ -65,15 +65,29 @@ main {
      object-position: center;
 }
 
+.sound_btn {
+  position: absolute;
+  top: 2%;
+  right: 3%;
+  font-size: 1em;
+  padding: 0.35em;
+  border-radius: 5em;
+  background-color: rgb(59, 59, 59);
+  color: rgb(233, 233, 233);
+}
+.sound_btn i {
+  pointer-events: none;
+}
+
 .reactions_div {
   position: absolute;
-  right: 4%;
-  bottom: -50%;
+  right: 5%;
+  bottom: -53%;
   color: white;
   height: 95vh;
 }
 .reactions_div div {
-  margin-bottom: 1.5em;
+  margin-bottom: 1.6em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -82,9 +96,11 @@ main {
 }
 .reactions_div div i {
   font-size: 1.9em;
+  pointer-events: none;
 }
 .reactions_div div p {
   font-size: 0.9em;
+  pointer-events: none;
 }
 
 .reel_disc_overlay {
@@ -101,7 +117,7 @@ main {
   font-size: 1.15em;
   position: absolute;
   left: 4%;
-  bottom: 4%;
+  bottom: 5.5%;
 }
 .reel_disc div {
   display: flex;
@@ -147,4 +163,8 @@ main {
 .caption div i {
   margin-top: 6px;
   margin-right: -5px;
+}
+
+.liked {
+  color: red;
 }/*# sourceMappingURL=style.css.map */
